@@ -1,0 +1,7 @@
+@extends('layout.layout')   
+
+@section('body')
+<x-contact.map />
+<x-contact.form />
+<x-contact.call />
+@endsection
