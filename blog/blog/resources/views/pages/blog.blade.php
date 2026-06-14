@@ -3,7 +3,8 @@
 
 @section('body')
 
-<x-blogs.blogscard/>
 <x-blogs.blogs:Sample="$Sample"/> 
+<x-services.services :data="$data"/>   
+@dd ($sample,$data)
 @endsection
 

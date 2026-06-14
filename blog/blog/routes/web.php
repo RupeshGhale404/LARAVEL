@@ -5,7 +5,10 @@ use App\Http\Controllers\WebpageController;
 
 Route::get('/', function () {
     return view('pages.home');
-})->name('home');
+});
+Route::get('/blog',function(){
+    return view('pages.blog');
+})->name('blog');
 Route::get('/test',function(){
     return view('test');      
 });

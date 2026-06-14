@@ -19,7 +19,20 @@ class WebpageController extends Controller
             'img'=>'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600'
             ],
         ];
-        return view ('pages.blog',compact('sample'));
+             $data=[
+            ['id'=>1,
+            'name'=>"test1",
+            'des'=>'This is a beautiful image',
+            'img'=>'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600'
+            ],
+            ['id'=>2,
+            'name'=>"test2",
+            'des'=>'hello this is test2',
+            'img'=>'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600'
+            ],
+        ];
+        @dd($sample,$data);
+        return view ('pages.blog',compact('sample', 'data'));
     }
     public function contact(){
         return view ('pages.contact');
