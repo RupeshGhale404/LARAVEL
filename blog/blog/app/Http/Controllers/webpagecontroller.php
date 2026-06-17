@@ -31,7 +31,7 @@ class WebpageController extends Controller
             'img'=>'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600'
             ],
         ];
-        @dd($sample,$data);
+      
         return view ('pages.blog',compact('sample', 'data'));
     }
     public function contact(){
