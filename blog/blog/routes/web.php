@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebpageController;
+use App\Http\Controllers\BLOGController;
+
 
 Route::get('/', function () {
     return view('pages.home');
@@ -38,6 +40,9 @@ Route::get('/about',function(){
 Route::get('/home',function(){
     return redirect()->route('home');
 });
+
+Route::get('/blogs/index',[BLOGController::class,'index']);
+
 
 Route::get('/blogs',[WebpageController::class,'blogs'])->name('blogs');
 
