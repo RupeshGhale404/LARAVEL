@@ -42,6 +42,7 @@ Route::get('/home',function(){
 });
 
 Route::get('/blogs/index',[BLOGController::class,'index']);
+Route::get('/blogs/create',[BLOGController::class,'create']);
 
 
 Route::get('/blogs',[WebpageController::class,'blogs'])->name('blogs');
