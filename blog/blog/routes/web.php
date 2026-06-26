@@ -41,8 +41,10 @@ Route::get('/home',function(){
     return redirect()->route('home');
 });
 
-Route::get('/blogs/index',[BLOGController::class,'index']);
-Route::get('/blogs/create',[BLOGController::class,'create']);
+Route::get('/blogs/index',[BLOGController::class,'index'])->name('blogs.index');
+Route::get('/blogs/create',[BLOGController::class,'create'])->name('blogs.create');
+Route::post('/blogs/store',[BLOGController::class,'store'])->name('blogs.store');
+
 
 
 Route::get('/blogs',[WebpageController::class,'blogs'])->name('blogs');

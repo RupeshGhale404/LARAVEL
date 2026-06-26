@@ -40,5 +40,31 @@ $blogs= [
 
     return view('pages.admin.blogs.create  ', compact('blogs'));
     }
-}
+    public function store(Request $request)
+{
+    dd($request);
+    // 1. Validate incoming data
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'desc' => 'required|string', // Validating 'desc'
+    ]);
 
+    // 2. Handle file upload safely
+    $imagePath = null;
+    if ($request->hasFile('img')) {
+        // Fixed typo from ->$tore to ->store and assigned it to $imagePath
+        $imagePath = $request->file('img')->store('blog_images', 'public');
+    }
+
+    // 3. Create the record (Fixed double colon and added missing semicolon)
+    Blog::create([
+        'title' => $request->title,
+        'desc'  => $request->desc, // Match this with your validation/form input
+        'img'   => $imagePath,
+    ]); // <-- Added missing semicolon here
+
+    // 4. Redirect with success message
+    return redirect()->route('blogs.index')->with('success', 'Blog created successfully!'); // <-- Added missing semicolon here
+}
+}
